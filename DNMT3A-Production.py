@@ -11,13 +11,13 @@ import os
 import re
 import numpy as np
 
-# input parameters. Needed to find and name the files.
+# Input parameters. Needed to find and name the files.
 
 Variant = 'WT'          # WT: Wild Type or MT: Mutant.
 sim_time = '25ns'       # simulation time of each replicate.
 number_replicates = 10  # the number of replicates you want to simulate
 
-# parameters to definde your system
+# Parameters to definde your system
 
 dt = 0.001*picoseconds      # this is the stepsize (1fs)
 temperature = 300*kelvin
@@ -32,8 +32,7 @@ os.system('mkdir {0}'.format(traj_folder))
 
 count = 1
 while (count <= number_replicates):
-    
-    # input Files
+    # Input Files
     pdb = PDBFile('DNMT3A-{}.pdb'.format(Variant))          # this is your starting strcture of the protein and peptide
     protein = app.Modeller(pdb.topology, pdb.positions)
     sim_forcefield = ('amber14-all.xml')                    # this is the used forcefield
@@ -44,12 +43,12 @@ while (count <= number_replicates):
     ligand_xml_files = ['SMA.xml', 'SMB.xml']               # these are the parameter files for the SAM molecules as they are not included in the standart forcefield                    
     ligand_pdb_files = ['SMA.pdb', 'SMB.pdb']               # these are the PDB files of the two SAM molecules                                         
     
-    # simulation Options
-    Simulate_Steps = 25000000   # 25 ns, simulation time of the main simualtion                 
+    # Simulation Options
+    Simulate_Steps = 250000   # 0,25 ns                      
     
-    npt_eq_Steps = 3000000      # 3 ns, simulation time of the NPT equilibration
-    restr_eq_Steps = 3000000    # 3 ns, simulation time of the restrained equilibration
-    free_eq_Steps = 3000000     # 3 ns, simulation time of the unrestrained equilibration
+    npt_eq_Steps = 300000      # 0,3 ns
+    restr_eq_Steps = 30000    # 3 ns
+    free_eq_Steps = 30000     # 3 ns
     
     restrained_eq_atoms = 'protein and name CA or chainid 4 or chainid 5'  # here we restrain the protein during the NPT equilibration phase
     force_eq_atoms = 2                                                     # kilojoules_per_mole/unit.angstroms
@@ -61,12 +60,12 @@ while (count <= number_replicates):
     
     # information for the hardware you are simulating on. These parameters are deigned for NVIDIA GPUs
     platform = Platform.getPlatformByName('CUDA')
-    gpu_index = '0'                                    # GPUs can be enumerated (0, 1, 2), if you don't know how this is set up, stick to 0
+    gpu_index = '0'                                                        # GPUs can be enumerated (0, 1, 2), if you don't know how this is set up, stick to 0
     platformProperties = {'Precision': 'single','DeviceIndex': gpu_index}
     trajectory_out_atoms = 'protein or chainid 4 or chainid 5 or resname SMA or resname SMB' # these are the atoms being saved in the trajectory, currently DNMT3A, the DNA and the two SAM molecules, waters and solvent iions are excluded
     trajectory_out_interval = 10000 # frames are wirtten into the trajectory every 10000 calcualted steps. For higher resolution decrease this. However file size and calculation times increases
     
-    # every residue is protonated according to the pH except for the residues mentioned below
+    #every residue is protonated according to the pH except for the residues mentioned below
     protonation_dict = {} #only for manual protonation
     
     # build force field object | all xml parameter files are bundled here
@@ -99,7 +98,7 @@ while (count <= number_replicates):
     
     # Generation and Solvation of Box
     print('Generation and Solvation of Box')
-    boxtype = 'rectangular' # cubic or rectangular
+    boxtype = 'rectangular' # ('cubic'|'rectangular')
     box_padding = 1.0 # in nanometers. This defines the distance of the protein to the box edges
     x_list = []
     y_list = []
