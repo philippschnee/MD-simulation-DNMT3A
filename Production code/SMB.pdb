@@ -1,0 +1,99 @@
+HETATM    1  N   SMB H1804      58.193 102.321  31.426  1.00  0.00           N  
+HETATM    2  CA  SMB H1804      56.998 102.035  32.325  1.00  0.00           C  
+HETATM    3  C   SMB H1804      57.261 101.082  33.546  1.00  0.00           C  
+HETATM    4  O   SMB H1804      57.951 101.392  34.475  1.00  0.00           O  
+HETATM    5  CB  SMB H1804      55.804 101.642  31.361  1.00  0.00           C  
+HETATM    6  CG  SMB H1804      54.439 101.651  32.064  1.00  0.00           C  
+HETATM    7  SD  SMB H1804      53.725 103.370  32.172  1.00  0.00           S  
+HETATM    8  CE  SMB H1804      52.774 103.256  30.629  1.00  0.00           C  
+HETATM    9  C5' SMB H1804      52.401 103.046  33.359  1.00  0.00           C  
+HETATM   10  C4' SMB H1804      52.879 103.263  34.784  1.00  0.00           C  
+HETATM   11  O4' SMB H1804      52.824 104.650  35.235  1.00  0.00           O  
+HETATM   12  C3' SMB H1804      51.987 102.542  35.842  1.00  0.00           C  
+HETATM   13  O3' SMB H1804      52.351 101.100  35.687  1.00  0.00           O  
+HETATM   14  C2' SMB H1804      52.767 103.150  37.062  1.00  0.00           C  
+HETATM   15  O2' SMB H1804      53.964 102.308  37.205  1.00  0.00           O  
+HETATM   16  C1' SMB H1804      53.116 104.614  36.636  1.00  0.00           C  
+HETATM   17  OXT SMB H1804      56.722  99.964  33.469  1.00  0.00           O  
+HETATM   18  N1  SMB H1804      52.836 109.170  39.259  1.00  0.00           N  
+HETATM   19  C2  SMB H1804      53.869 108.504  38.687  1.00  0.00           C  
+HETATM   20  N3  SMB H1804      53.856 107.346  37.982  1.00  0.00           N  
+HETATM   21  C4  SMB H1804      52.653 106.724  37.867  1.00  0.00           C  
+HETATM   22  C5  SMB H1804      51.598 107.302  38.501  1.00  0.00           C  
+HETATM   23  C6  SMB H1804      51.714 108.477  39.195  1.00  0.00           C  
+HETATM   24  N6  SMB H1804      50.624 109.133  39.789  1.00  0.00           N  
+HETATM   25  N7  SMB H1804      50.447 106.531  38.338  1.00  0.00           N  
+HETATM   26  C8  SMB H1804      50.828 105.498  37.571  1.00  0.00           C  
+HETATM   27  N9  SMB H1804      52.210 105.600  37.290  1.00  0.00           N  
+HETATM   28  H01 SMB H1804      57.959 103.134  30.858  1.00  0.00           H  
+HETATM   29  H02 SMB H1804      58.879 102.701  32.077  1.00  0.00           H  
+HETATM   30  H03 SMB H1804      56.649 102.949  32.823  1.00  0.00           H  
+HETATM   31  H04 SMB H1804      56.080 100.739  30.802  1.00  0.00           H  
+HETATM   32  H05 SMB H1804      55.771 102.479  30.652  1.00  0.00           H  
+HETATM   33  H06 SMB H1804      54.590 101.279  33.084  1.00  0.00           H  
+HETATM   34  H07 SMB H1804      53.888 100.931  31.446  1.00  0.00           H  
+HETATM   35  H08 SMB H1804      52.273 104.187  30.337  1.00  0.00           H  
+HETATM   36  H09 SMB H1804      53.383 102.859  29.808  1.00  0.00           H  
+HETATM   37  H10 SMB H1804      52.035 102.455  30.752  1.00  0.00           H  
+HETATM   38  H11 SMB H1804      52.090 101.998  33.275  1.00  0.00           H  
+HETATM   39  H12 SMB H1804      51.594 103.737  33.084  1.00  0.00           H  
+HETATM   40  H13 SMB H1804      53.940 102.992  34.844  1.00  0.00           H  
+HETATM   41  H14 SMB H1804      50.946 102.837  35.664  1.00  0.00           H  
+HETATM   42  H15 SMB H1804      52.646 100.766  36.552  1.00  0.00           H  
+HETATM   43  H16 SMB H1804      52.149 103.144  37.968  1.00  0.00           H  
+HETATM   44  H17 SMB H1804      54.405 102.678  37.990  1.00  0.00           H  
+HETATM   45  H18 SMB H1804      54.174 104.807  36.848  1.00  0.00           H  
+HETATM   46  H19 SMB H1804      54.795 109.074  38.688  1.00  0.00           H  
+HETATM   47  H20 SMB H1804      50.967 109.845  40.422  1.00  0.00           H  
+HETATM   48  H21 SMB H1804      49.766 108.608  39.903  1.00  0.00           H  
+HETATM   49  H22 SMB H1804      50.235 104.618  37.360  1.00  0.00           H
+CONECT    1    2   28   29
+CONECT    2    1    3    5   30
+CONECT    3    2    4   17
+CONECT    4    3
+CONECT    5    2    6   31   32
+CONECT    6    5    7   33   34
+CONECT    7    6    8    9
+CONECT    8    7   35   36   37
+CONECT    9    7   10   38   39
+CONECT   10    9   11   12   40
+CONECT   11   10   16
+CONECT   12   10   13   14   41
+CONECT   13   12   42
+CONECT   14   12   15   16   43
+CONECT   15   14   44
+CONECT   16   11   14   27   45
+CONECT   17    3
+CONECT   18   19   23
+CONECT   19   18   20   46
+CONECT   20   19   21
+CONECT   21   20   22   27
+CONECT   22   21   23   25
+CONECT   23   18   22   24
+CONECT   24   23   47   48
+CONECT   25   22   26
+CONECT   26   25   27   49
+CONECT   27   16   21   26
+CONECT   28    1
+CONECT   29    1
+CONECT   30    2
+CONECT   31    5
+CONECT   32    5
+CONECT   33    6
+CONECT   34    6
+CONECT   35    8
+CONECT   36    8
+CONECT   37    8
+CONECT   38    9
+CONECT   39    9
+CONECT   40   10
+CONECT   41   12
+CONECT   42   13
+CONECT   43   14
+CONECT   44   15
+CONECT   45   16
+CONECT   46   19
+CONECT   47   24
+CONECT   48   24
+CONECT   49   26  
+END
