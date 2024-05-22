@@ -6,6 +6,9 @@ from collections import defaultdict
 import pandas as pd
 from contact_map import ContactMap, ContactFrequency, ContactDifference, ResidueContactConcurrence, plot_concurrence
 import pickle
+import warnings
+
+warnings.filterwarnings("ignore", message="top= kwargs ignored since this file parser does not support it")
 
 # This script is a version of "DNMT3A-Contact_Maps.py", in which you loop through every trajectory replicate on its own rather than joining them in one trajectory. With this you get a resolution for each replicate.
 
