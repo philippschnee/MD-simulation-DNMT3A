@@ -13,13 +13,13 @@ import pickle
 
 Protein = 'DNMT3A'      # Name of the protein. 
 Variant = 'WT'          # WT: Wild Type or MT: Mutant.
-sim_time = 'test'       # simulation time of each replicate. usually something like: '100ns'
+sim_time = '25ns'       # simulation time of each replicate. usually something like: '100ns'
 replicates = 1          # number of replciates one wants to analyse in the current folder 
 cutoff = 0.35            # size of the sphere in nm used to calculate the contacts in.
 
 count = 1
 while (count <= replicates):
- traj = mdt.load('production_DNMT3A-{}_{}_Replicate{}.h5'.format(Variant, sim_time, count))
+ traj = mdt.load('/home/philipp/test_DNMT3A/Trajectory_DNMT3A-WT-25ns//production_DNMT3A-{}_{}_Replicate{}.h5'.format(Variant, sim_time, count))
  print('traj:', traj)
  
  topology = traj.topology
@@ -72,7 +72,7 @@ while (count <= replicates):
  df_RD = df.head(285)
  
  # get total number of contacts
- if sim_time == 'test':
+ if sim_time == '25ns':
     df_scalar = df_RD * 2500
  
  # delete all rows with only NaN in it (remaining NaN will not appear in excel)

@@ -11,7 +11,7 @@ import pickle
 
 Protein = 'DNMT3A'      # Name of the protein. 
 Variant = 'WT'          # WT: Wild Type or MT: Mutant.
-sim_time = 'test'       # simulation time of each replicate. usually something like: '100ns' 
+sim_time = '25ns'       # simulation time of each replicate. usually something like: '100ns' 
 replicates = 1          # number of replciates one wants to analyse in the current folder 
 contact_cutoff = '0_35' # size of the sphere used to calculate the contacts in.
 

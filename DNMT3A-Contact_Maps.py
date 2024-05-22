@@ -11,7 +11,7 @@ import pickle
 
 Protein = 'DNMT3A'      # Name of the protein. 
 Variant = 'WT'          # WT: Wild Type or MT: Mutant.
-sim_time = 'test'       # simulation time of each replicate. usually something like: '100ns'
+sim_time = '25ns'       # simulation time of each replicate. usually something like: '100ns'
 replicates = 1          # number of replciates one wants to analyse in the current folder 
 cutoff = 0.35           # size of the sphere in nm used to calculate the contacts in.
 
@@ -20,7 +20,7 @@ cutoff = 0.35           # size of the sphere in nm used to calculate the contact
 traj_dict = {}
 traj_list = []
 for i in range(replicates):
-    folder = 'production_DNMT3A-{}_{}_Replicate{}.h5'.format(Variant, sim_time, i+1)
+    folder = '/home/philipp/test_DNMT3A/Trajectory_DNMT3A-WT-25ns/production_DNMT3A-{}_{}_Replicate{}.h5'.format(Variant, sim_time, i+1)
     print(folder)
     traj_dict[i+1]=mdt.load(folder)
 for key in traj_dict:
@@ -81,11 +81,3 @@ number_replicates = str(replicates)
 contact_cutoff_str = str(cutoff).replace('.', '_')
 df.to_pickle('DNMT3A-{}-{}x{}_cutoff_{}.pkl'.format(Variant, number_replicates, sim_time, contact_cutoff_str))
 df.to_excel('DNMT3A-{}-{}x{}_cutoff_{}.xlsx'.format(Variant, number_replicates, sim_time, contact_cutoff_str))
-
-# only keep interaction of DNMT3A-1 with the DNA and in the RD interface (DNMT3A-1 vs. DNMT3A-2)
-df_RD = df.tail(50)
-df_RD = pd.concat([df_RD, df.head(285)])
-
-# create new folder and safe pickle, excel sheet
-df_RD.to_pickle('DNMT3A-{}-{}x{}_cutoff_{}_RD.pkl'.format(Variant, number_replicates, sim_time, contact_cutoff_str))
-df_RD.to_excel('DNMT3A-{}-{}x{}_cutoff_{}_RD.xlsx'.format(Variant, number_replicates, sim_time, contact_cutoff_str))
