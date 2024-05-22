@@ -6,6 +6,9 @@ from collections import defaultdict
 import pandas as pd
 from contact_map import ContactMap, ContactFrequency, ContactDifference, ResidueContactConcurrence, plot_concurrence
 import pickle
+import warnings
+
+warnings.filterwarnings("ignore", message="top= kwargs ignored since this file parser does not support it")
 
 # Input parameters. Needed to find and name the files.
 
