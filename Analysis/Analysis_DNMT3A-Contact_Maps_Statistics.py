@@ -22,7 +22,7 @@ cutoff = 0.35            # size of the sphere in nm used to calculate the contac
 
 count = 1
 while (count <= replicates):
- traj = mdt.load('/home/philipp/test_DNMT3A/Trajectory_DNMT3A-WT-25ns//production_DNMT3A-{}_{}_Replicate{}.h5'.format(Variant, sim_time, count))
+ traj = mdt.load('/path-to-trajectory/production_DNMT3A-{}_{}_{}.h5'.format(Variant, sim_time, count))
  print('traj:', traj)
  
  topology = traj.topology
