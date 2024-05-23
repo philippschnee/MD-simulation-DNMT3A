@@ -23,7 +23,7 @@ cutoff = 0.35           # size of the sphere in nm used to calculate the contact
 traj_dict = {}
 traj_list = []
 for i in range(replicates):
-    folder = '/home/philipp/test_DNMT3A/Trajectory_DNMT3A-WT-25ns/production_DNMT3A-{}_{}_Replicate{}.h5'.format(Variant, sim_time, i+1)
+    folder = '/path-to-trajectory/production_DNMT3A-{}_{}_{}.h5'.format(Variant, sim_time, i+1)
     print(folder)
     traj_dict[i+1]=mdt.load(folder)
 for key in traj_dict:
