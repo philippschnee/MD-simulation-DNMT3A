@@ -44,11 +44,11 @@ while (count <= number_replicates):
     ligand_pdb_files = ['SMA.pdb', 'SMB.pdb']               # these are the PDB files of the two SAM molecules                                         
     
     # Simulation Options
-    Simulate_Steps = 250000   # 0,25 ns                      
+    Simulate_Steps = 25000000   # 25 ns                      
     
-    npt_eq_Steps = 300000      # 0,3 ns
-    restr_eq_Steps = 30000    # 3 ns
-    free_eq_Steps = 30000     # 3 ns
+    npt_eq_Steps = 3000000      # 3 ns
+    restr_eq_Steps = 3000000    # 3 ns
+    free_eq_Steps = 3000000     # 3 ns
     
     restrained_eq_atoms = 'protein and name CA or chainid 4 or chainid 5'  # here we restrain the protein during the NPT equilibration phase
     force_eq_atoms = 2                                                     # kilojoules_per_mole/unit.angstroms
