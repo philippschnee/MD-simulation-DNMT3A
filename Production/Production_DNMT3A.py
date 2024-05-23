@@ -15,7 +15,7 @@ import numpy as np
 
 Variant = 'WT'          # WT: Wild Type or MT: Mutant.
 sim_time = '25ns'       # simulation time of each replicate.
-number_replicates = 10  # the number of replicates you want to simulate
+number_replicates = 1  # the number of replicates you want to simulate
 
 # Parameters to definde your system
 
@@ -26,14 +26,14 @@ sim_ph = 7.0
 
 # create folder where all simulation outputs are stored
 
-traj_folder = 'Trajectory_DNMT3A-{}-{}'.format(Variant, sim_time)
+traj_folder = 'DNMT3A_{}_{}'.format(Variant, sim_time)
 os.system('mkdir {0}'.format(traj_folder))
 
 
 count = 1
 while (count <= number_replicates):
     # Input Files
-    pdb = PDBFile('DNMT3A-{}.pdb'.format(Variant))          # this is your starting strcture of the protein and peptide
+    pdb = PDBFile('DNMT3A_{}.pdb'.format(Variant))          # this is your starting strcture of the protein and peptide
     protein = app.Modeller(pdb.topology, pdb.positions)
     sim_forcefield = ('amber14-all.xml')                    # this is the used forcefield
     sim_watermodel = ('amber14/tip4pew.xml')                # this is the used water model
@@ -276,13 +276,13 @@ while (count <= number_replicates):
     simulation = app.Simulation(solvated_protein.topology, system, integrator, platform, platformProperties)
     simulation.context.setState(state_free_EQ)
     simulation.reporters.append(app.StateDataReporter(stdout, 10000, step=True, potentialEnergy=True, temperature=True, progress=True, remainingTime=True, speed=True, totalSteps=Simulate_Steps, separator='\t'))
-    simulation.reporters.append(HDF5Reporter(traj_folder + '/' + 'production_DNMT3A-{}_{}_Replicate{}.h5'.format(Variant, sim_time, count), 10000, atomSubset=trajectory_out_indices))
+    simulation.reporters.append(HDF5Reporter(traj_folder + '/' + 'production_DNMT3A_{}_{}_{}.h5'.format(Variant, sim_time, count), 10000, atomSubset=trajectory_out_indices))
     print('production run of replicate {}...'.format(count))
     simulation.step(Simulate_Steps)
     state_production = simulation.context.getState(getPositions=True, getVelocities=True)
     state_production = simulation.context.getState(getPositions=True, enforcePeriodicBox=True)
     final_pos = state_production.getPositions()
-    app.PDBFile.writeFile(simulation.topology, final_pos, open(traj_folder + '/' + 'production_DNMT3A-{}_{}_Replicate{}.pdb'.format(Variant, sim_time, count), 'w'), keepIds=True)
+    app.PDBFile.writeFile(simulation.topology, final_pos, open(traj_folder + '/' + 'production_DNMT3A_{}_{}_{}.pdb'.format(Variant, sim_time, count), 'w'), keepIds=True)
     print('Successful production of replicate {}...'.format(count))
     del(simulation)
  
